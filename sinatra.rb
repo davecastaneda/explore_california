@@ -5,7 +5,7 @@ require 'sinatra'
 # set :public_folder, settings.root + "public"
 # set :views, settings.root + "views"
 
-
 get '/' do
-    "Explore California"
+  'Explore California'
 end
+
