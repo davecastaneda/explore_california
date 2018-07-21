@@ -10,6 +10,30 @@ get '/' do
   erb :index
 end
 
+get '/contact' do
+  erb :contact
+end
+
+get '/explorers' do
+  erb :explorers
+end
+
+get '/mission' do
+  erb :mission
+end
+
+get '/resources' do
+  erb :resources
+end
+
+get '/support' do
+  erb :support
+end
+
+get '/tours' do
+  erb :tours
+end
+
 get '/test' do
   template = 'The current year is <%= Time.now.year %>.'
   erb template
