@@ -109,9 +109,13 @@
                     ]
            %>
           <ul id="quickNav">
-          <% quick_nav.each do |item|%>
-            <li><a href="index.html" title="Our home page">Home</a></li>
-            <% end %>
+              <% quick_nav.each do |item|%>
+                <li>
+                  <a href="<%=item[1]%>" title="<%=item[2]%>">
+                  <%=item[0]%>
+                  </a>
+                </li>
+              <% end %>
           </ul>
         </div>
         <div id="footerResources">
