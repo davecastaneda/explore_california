@@ -7,6 +7,7 @@ require 'sinatra'
 
 get '/' do
   @page_title = "Welcome to Explore California!"
+  @body_id = 'home'
   erb :index
 end
 
