@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/cookies'
 
 # Default file paths
 # set :root, File.dirname(__FILE__)
@@ -63,4 +64,15 @@ end
 get '/test' do
   template = 'The current year is <%= Time.now.year %>.'
   render_view template
+end
+
+get '/set_cookie' do
+  cookies[:time] = Time.now.to_s
+  "The cookie has been set."
+end
+
+get '/get_cookie' do
+  output = "Stored time: #{cookies[:time]}<br />"
+  output << "Current time: #{Time.now}"
+  output
 end
