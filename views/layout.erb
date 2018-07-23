@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><%= @page_title %></title>
-    <link href="assets/stylesheets/main.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/stylesheets/main.css" rel="stylesheet" type="text/css" media="all">
     <script src="assets/javascripts/jquery-1.5.1.min.js"></script>
     <script src="assets/javascripts/jquery-ui-1.8.10.custom.min.js"></script>
     <script src="assets/javascripts/menus.js"></script>
@@ -13,39 +13,40 @@
     <div id="wrapper">
 
       <div id="mainHeader">
-        <a href="/index" title="home" class="logo">
+        <a href="/" title="home" class="logo">
           <div id="logo">
             <h1>Explore California</h1>
           </div>
         </a>
-          <%= render_partial("_navigation") %>
+        <%= erb "_navigation".to_sym %>
       </div>
-<!-- before yield -->
+
+      <!-- before yield -->
       <%= yield %>
-<!-- after yield -->
-        
+      <!-- after yield -->
+
       <div id="pageFooter">
         <div id="quickLinks">
           <h1>Quick Nav</h1>
 
-          <% 
-          quick_nav = [
-                      ['Home', '/', 'Our home page'],
-                      ['Tours', '/tours.erb', 'Explore our tours'],
-                      ['Mission', '/mission.erb', 'What we think'],
-                      ['Resources', '/resources.erb', 'Guidance and planning'],
-                      ['Explorers', '/explorers.erb', 'Join our community'],
-                      ['Contact', '/contact.erb', 'Contact and support']
-                    ]
-           %>
+<%
+quick_nav = [
+  ['Home', '/', 'Our home page'],
+  ['Tours', '/tours', 'Explore our tours'],
+  ['Mission', '/mission', 'What we think'],
+  ['Resources', '/resources', 'Guidance and planning'],
+  ['Explorers', '/explorers', 'Join our community'],
+  ['Contact', '/contact', 'Contact and support']
+]
+%>
           <ul id="quickNav">
-              <% quick_nav.each do |item|%>
-                <li>
-                  <a href="<%=item[1]%>" title="<%=item[2]%>">
-                  <%=item[0]%>
-                  </a>
-                </li>
-              <% end %>
+          <% quick_nav.each do |item| %>
+            <li>
+              <a href="/<%= item[1] %>" title="<%= item[2] %>">
+                <%= item[0] %>
+              </a>
+            </li>
+          <% end %>
           </ul>
         </div>
         <div id="footerResources">
