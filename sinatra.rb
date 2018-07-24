@@ -1,6 +1,9 @@
 require 'sinatra'
 require 'sinatra/cookies'
 
+enable :sessions
+set :session_secret, 'Blargh! This is my string!'
+
 # Default file paths
 # set :root, File.dirname(__FILE__)
 # set :public_folder, settings.root + "public"
@@ -64,6 +67,17 @@ end
 get '/test' do
   template = 'The current year is <%= Time.now.year %>.'
   render_view template
+end
+
+get '/set_session' do
+  session[:time] = Time.now.to_s
+  "The session has been set."
+end
+
+get '/get_session' do
+  output = "Stored time: #{session[:time]}<br />"
+  output << "Current time: #{Time.now}"
+  output
 end
 
 get '/set_cookie' do
