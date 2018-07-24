@@ -78,7 +78,7 @@ get '/get_session' do
   output = "Stored time: #{session[:time]}<br />"
   output << "Current time: #{Time.now}"
   output
-end
+end 
 
 get '/set_cookie' do
   cookies[:time] = Time.now.to_s
@@ -89,4 +89,4 @@ get '/get_cookie' do
   output = "Stored time: #{cookies[:time]}<br />"
   output << "Current time: #{Time.now}"
   output
-end
+end 
